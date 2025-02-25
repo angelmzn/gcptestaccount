@@ -1,6 +1,6 @@
 ```mermaid
     graph LR
-    A"net-a" -->|VPC Peering| B("Google-owned-VPC" ("Cloud Build Private Pool"));
+    A"net-a" -->|VPC Peering| B('DOUBLECIRCLEEND' ("Cloud Build Private Pool"));
     A -->|VPC Peering| C("Google-Owned VPC" ("GKE Control Plane"));
     D"net-b" -->|VPC Peering| E"net-c";
     B--X No Connectivity --> C;
