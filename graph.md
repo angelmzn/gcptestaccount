@@ -1,11 +1,10 @@
-```mermaid
-    graph LR
-    A"net-a" -->|VPC Peering| B('DOUBLECIRCLEEND' ("Cloud Build Private Pool"));
-    A -->|VPC Peering| C("Google-Owned VPC" ("GKE Control Plane"));
-    D"net-b" -->|VPC Peering| E"net-c";
-    B--X No Connectivity --> C;
-    D--X No Connectivity --> A;
-    E--X No Connectivity --> A;
+graph LR
+    A[Your VPC Network (net-a)] -->|VPC Peering| B["Google-Owned VPC (Cloud Build Private Pool)"];
+    A -->|VPC Peering| C["Google-Owned VPC (GKE Control Plane)"];
+    D[Another VPC Network (net-b)] -->|VPC Peering| E[Yet Another VPC Network (net-c)];
+    B -- No Connectivity --> C;
+    D -- No Connectivity --> A;
+    E -- No Connectivity --> A;
     subgraph Google Cloud
         B;
         C;
@@ -27,7 +26,6 @@
         F[No Transitive Peering];
         G[Auto Mode VPC Restrictions];
     end
-    F-->B;
-    F-->C;
-    G-->A;
-    ```
+    F --> B;
+    F --> C;
+    G --> A;
